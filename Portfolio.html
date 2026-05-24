@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhavya sree MLN - AI Content Writer & Strategist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --accent: #0d7377;
+            --accent-light: #f4a825;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --bg-light: #f7f9f9;
+            --bg-white: #ffffff;
+            --border: #e4eaea;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--bg-light);
+        }
+
+        /* HEADER */
+        header {
+            background: var(--accent);
+            color: white;
+            padding: 70px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--accent-light);
+            animation: slideDown 0.8s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: 5%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 50%;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-40px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header .tagline {
+            font-size: 1.2em;
+            opacity: 0.95;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+        }
+
+        header .contact {
+            font-size: 1em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        header .contact a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            transition: opacity 0.3s;
+            font-weight: 500;
+        }
+
+        header .contact a:hover {
+            opacity: 0.7;
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
+
+        /* TABS */
+        .tabs-nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--border);
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1em;
+            font-family: 'Lora', serif;
+            color: var(--text-light);
+            cursor: pointer;
+            position: relative;
+            font-weight: 600;
+            transition: color 0.3s;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+        }
+
+        .tab-btn:hover {
+            color: var(--accent);
+        }
+
+        .tab-btn.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* INTRO SECTION */
+        .intro-section {
+            background: var(--bg-white);
+            padding: 50px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            border-left: 5px solid var(--accent);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .intro-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .intro-section p {
+            color: var(--text-light);
+            line-height: 1.9;
+            font-size: 1.05em;
+            margin-bottom: 15px;
+        }
+
+        /* SAMPLE PREVIEW */
+        .sample-preview {
+            background: var(--bg-white);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--accent);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .sample-preview:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .sample-header {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: white;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sample-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+
+        .sample-badge {
+            background: rgba(255,255,255,0.25);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .sample-body {
+            padding: 35px;
+        }
+
+        .sample-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+            color: var(--text-light);
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .sample-excerpt {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            line-height: 1.8;
+            font-size: 1em;
+            font-style: italic;
+            background: rgba(76, 175, 80, 0.05);
+            padding: 15px;
+            border-left: 3px solid var(--accent-light);
+            border-radius: 4px;
+        }
+
+        .expand-btn {
+            background: var(--accent);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Lora', serif;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: background 0.3s, transform 0.2s;
+            margin-top: 15px;
+        }
+
+        .expand-btn:hover {
+            background: var(--accent-light);
+            transform: scale(1.05);
+        }
+
+        .full-sample {
+            display: none;
+            margin-top: 25px;
+            padding: 25px;
+            background: rgba(76, 175, 80, 0.05);
+            border-radius: 6px;
+            border-left: 3px solid var(--accent-light);
+        }
+
+        .full-sample.show {
+            display: block;
+            animation: expandDown 0.5s ease;
+        }
+
+        @keyframes expandDown {
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
+            to {
+                opacity: 1;
+                max-height: 2000px;
+            }
+        }
+
+        .full-sample h4 {
+            color: var(--accent);
+            margin: 20px 0 15px 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2em;
+        }
+
+        .full-sample p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .full-sample strong {
+            color: var(--text-dark);
+        }
+
+        .prompt-box {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 3px solid var(--accent-light);
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: var(--text-dark);
+            overflow-x: auto;
+        }
+
+        .full-sample code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        /* SKILLS SECTION */
+        .skills-section {
+            background: var(--bg-white);
+            padding: 50px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .skills-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--accent);
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.08) 0%, rgba(76, 175, 80, 0.03) 100%);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-light);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(76, 175, 80, 0.15);
+        }
+
+        .skill-card h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2em;
+        }
+
+        .skill-card ul {
+            list-style: none;
+        }
+
+        .skill-card li {
+            padding: 6px 0;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-card li::before {
+            content: '▸';
+            color: var(--accent-light);
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        /* ABOUT APPROACH */
+        .approach-section {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .approach-section h2 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .approach-card {
+            background: rgba(255,255,255,0.12);
+            padding: 25px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .approach-card h3 {
+            margin-bottom: 12px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1em;
+            font-weight: 700;
+        }
+
+        .approach-card p {
+            font-size: 0.95em;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        /* ACHIEVEMENTS */
+        .achievements-section {
+            background: var(--bg-white);
+            padding: 50px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .achievements-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--accent);
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        .achievement-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(76, 175, 80, 0.05);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-light);
+        }
+
+        .achievement-icon {
+            color: var(--accent);
+            font-size: 1.5em;
+            flex-shrink: 0;
+            min-width: 40px;
+        }
+
+        .achievement-text {
+            color: var(--text-light);
+        }
+
+        .achievement-text strong {
+            color: var(--text-dark);
+        }
+
+        /* CTA */
+        .cta-section {
+            background: var(--accent);
+            color: white;
+            padding: 60px 50px;
+            border-radius: 8px;
+            text-align: center;
+            animation: fadeInUp 0.8s ease 0.8s both;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .cta-section p {
+            margin-bottom: 35px;
+            font-size: 1.05em;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 14px 32px;
+            font-size: 1em;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Lora', serif;
+            transition: all 0.3s;
+            border: 2px solid white;
+        }
+
+        .cta-btn-primary {
+            background: white;
+            color: var(--accent);
+        }
+
+        .cta-btn-primary:hover {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .cta-btn-secondary {
+            background: transparent;
+            color: white;
+        }
+
+        .cta-btn-secondary:hover {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.05);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin: 10px 0;
+            opacity: 0.9;
+        }
+
+        footer a {
+            color: var(--accent-light);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        footer a:hover {
+            opacity: 0.7;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+
+            .container {
+                padding: 30px 15px;
+            }
+
+            .intro-section,
+            .skills-section,
+            .achievements-section,
+            .approach-section,
+            .cta-section {
+                padding: 30px;
+            }
+
+            .sample-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .cta-btn {
+                width: 100%;
+            }
+
+            .tabs-nav {
+                flex-direction: column;
+            }
+
+            .tab-btn {
+                text-align: left;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .tab-btn.active {
+                border-bottom-color: var(--accent);
+                border-left: 3px solid var(--accent);
+                padding-left: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <h1>Bhavya sree MLN</h1>
+        <p class="tagline">Content Writer & AI Strategist</p>
+        <p class="tagline" style="font-size: 0.95em; margin-bottom: 20px;">Narrative-driven content powered by research and AI collaboration</p>
+        <div class="contact">
+            <a href="mailto:bhavyamahima439@gmail.com">📧 Email</a>
+            <a href="tel:7093263098">📱 +91 7093263098</a>
+            <a href="https://linkedin.com/in/bhavya-sree-mahimaluru" target="_blank">🔗 LinkedIn</a>
+        </div>
+    </header>
+
+    <!-- NAVIGATION TABS -->
+    <div class="container">
+        <div class="tabs-nav">
+            <button class="tab-btn active" onclick="switchTab('overview')">Overview</button>
+            <button class="tab-btn" onclick="switchTab('samples')">Content Samples</button>
+            <button class="tab-btn" onclick="switchTab('skills')">Skills & Approach</button>
+            <button class="tab-btn" onclick="switchTab('contact')">Get In Touch</button>
+        </div>
+
+        <!-- TAB 1: OVERVIEW -->
+        <div id="overview" class="tab-content active">
+            <section class="intro-section">
+                <h2>About Me</h2>
+                <p>
+                    I'm a content writer and strategist who specializes in research-backed narrative creation. 
+                    I use AI (Claude specifically) as a collaboration tool—not a replacement for thinking—to produce 
+                    high-quality content on climate, sustainability, tech innovation, and emerging technologies.
+                </p>
+                <p>
+                    <strong>My philosophy:</strong> AI generates options. I choose meaning. Every piece I create is 
+                    backed by research, refined through multiple iterations, and aligned with clear strategic goals.
+                </p>
+                <p>
+                    <strong>Why I'm different:</strong> Most freelancers hide their AI prompts. I document them fully. 
+                    Most content writers don't understand data. I'm Advanced Excel certified. Most AI content feels 
+                    generic. Mine is research-backed, audience-specific, and strategically intentional.
+                </p>
+            </section>
+
+            <section class="achievements-section">
+                <h2>Key Achievements</h2>
+                
+                <div class="achievement-item">
+                    <div class="achievement-icon">🏆</div>
+                    <div class="achievement-text">
+                        <strong>ANVESHAN Research Award (2025)</strong> — First-place winner for poster presentation on 
+                        "Climate Fiction: A Narrative Approach to Environmental Awareness"
+                    </div>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="achievement-icon">📚</div>
+                    <div class="achievement-text">
+                        <strong>Advanced Excel Certification (2024)</strong> — Proficiency in data analysis, visualization, 
+                        and translating data insights into compelling narratives
+                    </div>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="achievement-icon">🎤</div>
+                    <div class="achievement-text">
+                        <strong>Business Communication Certificate (2024)</strong> — Hong Kong University (edX). 
+                        Professional communication, persuasive speaking, and presentation skills
+                    </div>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="achievement-icon">✍️</div>
+                    <div class="achievement-text">
+                        <strong>Published Writer</strong> — Medium articles on climate fiction, environmental narratives, 
+                        and sustainable technology (academic + creative)
+                    </div>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="achievement-icon">🎓</div>
+                    <div class="achievement-text">
+                        <strong>BA Creative Literature (Score: 90)</strong> — SPW Degree and PG College, Tirupati. 
+                        Specialized in narrative research, climate fiction, and critical analysis
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- TAB 2: SAMPLES -->
+        <div id="samples" class="tab-content">
+            <h2 style="font-family: 'Playfair Display', serif; color: var(--accent); margin-bottom: 30px; font-size: 1.8em;">Content Samples</h2>
+
+            <!-- SAMPLE 1: Blog -->
+            <div class="sample-preview">
+                <div class="sample-header">
+                    <h3>Climate Fiction Blog Post</h3>
+                    <span class="sample-badge">Blog Writing</span>
+                </div>
+                <div class="sample-body">
+                    <div class="sample-meta">
+                        <span class="meta-item">📄 620 words</span>
+                        <span class="meta-item">⏱️ 4–5 min read</span>
+                        <span class="meta-item">🔍 SEO-optimized</span>
+                    </div>
+                    
+                    <p class="sample-excerpt">
+                        "Why Climate Fiction Moves Us More Than Climate Data" — An engaging exploration of narrative psychology 
+                        and environmental communication, featuring real examples (Oryx and Crake, Ministry for the Future) and 
+                        actionable insights for readers.
+                    </p>
+
+                    <button class="expand-btn" onclick="toggleSample('sample1')">Read Full Sample →</button>
+
+                    <div id="sample1" class="full-sample">
+                        <h4>How This Was Created</h4>
+                        <p>This piece demonstrates my approach to AI-assisted content writing. Here's the methodology:</p>
+
+                        <div class="prompt-box">
+                            <strong>Claude Prompt Used:</strong><br>
+                            "You are an expert content writer specializing in climate narratives and environmental communication. 
+                            Write a 500-700 word engaging blog post titled 'Why Climate Fiction Moves Us More Than Climate Data' 
+                            for a medium-to-advanced audience interested in sustainability and narrative-driven change.
+                            
+                            Requirements: Hook with surprising statistic, explain why stories > data, use 2-3 concrete examples, 
+                            include actionable insights, end with CTA, authoritative but accessible tone, slightly feminist-critical."
+                        </div>
+
+                        <h4>The Actual Content</h4>
+                        <p>
+                            <strong>Did you know?</strong> Over 97% of climate scientists agree on human-caused climate change, 
+                            yet fewer than 50% of Americans consider it a personal priority. The gap isn't a failure of data—it's 
+                            a failure of narrative.
+                        </p>
+
+                        <p>
+                            We're drowning in climate statistics. Carbon parts per million. Projected temperature rises by 2050. 
+                            Melting ice caps. Yet somehow, a single novel—say, <em>Oryx and Crake</em> by Margaret Atwood—can shift 
+                            how we see environmental collapse more profoundly than a thousand peer-reviewed papers ever could.
+                        </p>
+
+                        <p>This is the power of climate fiction.</p>
+
+                        <h4>Why This Sample Matters</h4>
+                        <ul style="margin-left: 20px; line-height: 1.8;">
+                            <li><strong>Demonstrates research synthesis:</strong> Built on neuroscience research about how narratives activate brain regions differently than facts</li>
+                            <li><strong>Uses specific examples:</strong> Real books, real authors—not generic references</li>
+                            <li><strong>Actionable insights:</strong> Ends with "How to Engage" section giving readers concrete steps</li>
+                            <li><strong>SEO-optimized:</strong> Keywords naturally integrated (climate fiction, environmental storytelling, narrative change)</li>
+                            <li><strong>Strategic structure:</strong> Hook → problem → solution → examples → action</li>
+                        </ul>
+
+                        <h4>My Approach Here</h4>
+                        <p>
+                            This post started as a Claude output, but I:
+                        </p>
+                        <ul style="margin-left: 20px; line-height: 1.8;">
+                            <li>Verified all statistics (97% scientist consensus is real)</li>
+                            <li>Refined the narrative flow (original was too abstract)</li>
+                            <li>Added personal perspective (the "feminist-critical" tone)</li>
+                            <li>Checked for accuracy in literary references</li>
+                            <li>Optimized for SEO without keyword stuffing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SAMPLE 2: LinkedIn -->
+            <div class="sample-preview">
+                <div class="sample-header">
+                    <h3>LinkedIn Carousel Strategy</h3>
+                    <span class="sample-badge">Social Content</span>
+                </div>
+                <div class="sample-body">
+                    <div class="sample-meta">
+                        <span class="meta-item">📱 5 slides</span>
+                        <span class="meta-item">👥 B2B Marketing</span>
+                        <span class="meta-item">💬 High engagement</span>
+                    </div>
+
+                    <p class="sample-excerpt">
+                        "AI + Storytelling: The Future of Content" — A strategic carousel designed for marketing professionals and 
+                        content creators. Shows how to position AI as collaboration tool, includes engagement psychology, and 
+                        demonstrates platform-specific content thinking.
+                    </p>
+
+                    <button class="expand-btn" onclick="toggleSample('sample2')">Read Full Sample →</button>
+
+                    <div id="sample2" class="full-sample">
+                        <h4>Slide 1: Hook</h4>
+                        <p>
+                            "AI didn't come to kill content writers. It came to liberate them from the tyranny of blank pages.<br><br>
+                            I used Claude to generate 10 blog post outlines in 30 minutes. What would've taken 5 hours manually. 
+                            But here's the plot twist—the best content still requires human judgment, nuance, and creativity."
+                        </p>
+
+                        <h4>Slide 2: Research as Superpower</h4>
+                        <p>
+                            "AI's real superpower isn't writing. It's research at scale. Instead of spending 2 hours reading 
+                            10 sources, ask Claude to summarize key debates in your field. You get a briefing in 5 minutes. 
+                            More informed. Less overwhelmed. The human still chooses what matters."
+                        </p>
+
+                        <h4>Slide 3: Prompting is a Skill</h4>
+                        <p>
+                            "The future isn't 'writing vs. AI.' It's 'who can prompt better?' A bad prompt = mediocre content. 
+                            A great prompt = focused, research-backed, strategic content. Prompt engineering is the new copywriting. 
+                            Learn it, and you're not replaceable—you're amplified."
+                        </p>
+
+                        <h4>Slide 4: Human Judgment Still Wins</h4>
+                        <p>
+                            "AI generates options. Humans choose meaning. Should your brand sound authoritative or approachable? 
+                            Funny or serious? That judgment call is where your expertise lives. Irreplaceable."
+                        </p>
+
+                        <h4>Slide 5: CTA</h4>
+                        <p>
+                            "The best content writers aren't fighting AI. They're learning to collaborate with it. Question for you: 
+                            What aspect of content work do you most want to automate? Let's discuss—I read every comment."
+                        </p>
+
+                        <h4>Why This Approach Works</h4>
+                        <ul style="margin-left: 20px; line-height: 1.8;">
+                            <li><strong>Platform psychology:</strong> LinkedIn users want validation their jobs are safe, but also want practical tools</li>
+                            <li><strong>Philosophical positioning:</strong> Frames AI as tool, not threat—resonates with anxious creators</li>
+                            <li><strong>Engagement driver:</strong> Ends with open question that invites comments (boosts algorithm)</li>
+                            <li><strong>Thought leadership:</strong> Takes nuanced stance, not just hype</li>
+                        </ul>
+
+                        <h4>Alternative Versions Included</h4>
+                        <p>For different audiences, you'd adjust:</p>
+                        <ul style="margin-left: 20px; line-height: 1.8;">
+                            <li><strong>Freelancers:</strong> Focus on scaling client base, pricing angle</li>
+                            <li><strong>Executives:</strong> Focus on ROI and productivity metrics</li>
+                            <li><strong>Students:</strong> Focus on job market readiness and skill-building</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SAMPLE 3: SEO Article -->
+            <div class="sample-preview">
+                <div class="sample-header">
+                    <h3>SEO-Optimized Long-Form Article</h3>
+                    <span class="sample-badge">Business Writing</span>
+                </div>
+                <div class="sample-body">
+                    <div class="sample-meta">
+                        <span class="meta-item">📊 1,150 words</span>
+                        <span class="meta-item">🎯 Data-backed</span>
+                        <span class="meta-item">📈 Ranking potential</span>
+                    </div>
+
+                    <p class="sample-excerpt">
+                        "Green Tech Startups Are Winning—Here's Why" — A comprehensive article for corporate sustainability teams 
+                        and entrepreneurs. Features real companies, embedded data, clear structure, and strategic linking—demonstrating 
+                        SEO copywriting mastery.
+                    </p>
+
+                    <button class="expand-btn" onclick="toggleSample('sample3')">Read Full Sample →</button>
+
+                    <div id="sample3" class="full-sample">
+                        <h4>Article Hook (Opening)</h4>
+                        <p>
+                            "You've probably heard the stat: venture capital directed toward climate tech startups exceeded $70 billion 
+                            in 2023. But numbers don't tell the full story. What's really happening is a shift in how the world invests, 
+                            innovates, and operates. And it's changing everything."
+                        </p>
+
+                        <h4>Why This Hook Works</h4>
+                        <ul style="margin-left: 20px; line-height: 1.8;">
+                            <li>Starts with familiar statistic (meets reader where they are)</li>
+                            <li>Immediately pivots to deeper insight (the "but" turn)</li>
+                            <li>Promises change/relevance (what's in it for the reader)</li>
+                            <li>Sets up narrative (positions article as explanation)</li>
+                        </ul>
+
+                        <h4>Key Sections Included</h4>
+                        <p><strong>1. The Investor Appetite Has Shifted</strong></p>
+                        <p>
+                            Shows how $2.3 trillion in institutional capital is now directed toward climate solutions. 
+                            Provides context for why startups are winning (access to capital vs traditional tech).
+                        </p>
+
+                        <p><strong>2. Talent Follows Purpose</strong></p>
+                        <p>
+                            Explains the retention advantage: developers choose meaningful work. Cites retention differences 
+                            (e.g., Impossible Foods has 2-3x lower attrition). Shows strategic advantage compounds over time.
+                        </p>
+
+                        <p><strong>3. The Business Model Has Built-In Expansion Potential</strong></p>
+                        <p>
+                            Uses Climeworks as real example. Shows how regulatory tailwinds automatically expand addressable markets 
+                            (unlike traditional SaaS which must manually expand into adjacent verticals).
+                        </p>
+
+                        <h4>SEO Elements Demonstrating Skill</h4>
+                        <ul style="margin-left: 20px; line-height: 1.8;">
+                            <li><strong>Keyword integration:</strong> Primary ("green tech startups") appears in H1, intro, conclusion, 2+ H2s</li>
+                            <li><strong>Optimal word count:</strong> 1,150 words (ideal for competitive keywords)</li>
+                            <li><strong>Real examples:</strong> Impossible Foods, Climeworks (not generic references)</li>
+                            <li><strong>Data backing:</strong> $70B figure, $2.3T institutional capital, specific retention metrics</li>
+                            <li><strong>Clear structure:</strong> H1 → intro → H2s → body → conclusion (helps search engines index)</li>
+                        </ul>
+
+                        <h4>Why This Article Demonstrates Writing Skill</h4>
+                        <p>
+                            This isn't just "here are facts about green tech." It's:
+                        </p>
+                        <ul style="margin-left: 20px; line-height: 1.8;">
+                            <li>Strategic (identifies 5 distinct reasons for startup success)</li>
+                            <li>Research-backed (real companies, real numbers)</li>
+                            <li>Audience-aware (speaks to both corporate decision-makers and entrepreneurs)</li>
+                            <li>Narrative-driven (tells a story about power shift, not just listing facts)</li>
+                            <li>Actionable (reader finishes understanding the landscape and competitive dynamics)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: SKILLS -->
+        <div id="skills" class="tab-content">
+            <section class="skills-section">
+                <h2>Core Competencies</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>AI & Prompting</h3>
+                        <ul>
+                            <li>Claude AI expert</li>
+                            <li>Prompt engineering</li>
+                            <li>Iterative refinement</li>
+                            <li>AI-human collaboration</li>
+                            <li>Process documentation</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Content Writing</h3>
+                        <ul>
+                            <li>Blog posts (500–2,500 words)</li>
+                            <li>Social media copy</li>
+                            <li>LinkedIn articles</li>
+                            <li>Thought leadership</li>
+                            <li>Narrative storytelling</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <h3>SEO & Strategy</h3>
+                        <ul>
+                            <li>Keyword optimization</li>
+                            <li>SEO copywriting</li>
+                            <li>Content strategy</li>
+                            <li>Engagement mechanics</li>
+                            <li>Platform-specific thinking</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Research & Analysis</h3>
+                        <ul>
+                            <li>Literature synthesis</li>
+                            <li>Data visualization</li>
+                            <li>Complex topic simplification</li>
+                            <li>Fact-checking & accuracy</li>
+                            <li>Advanced Excel (certified)</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Narrative Specialties</h3>
+                        <ul>
+                            <li>Climate fiction</li>
+                            <li>Sustainability narratives</li>
+                            <li>Tech innovation stories</li>
+                            <li>Critical analysis</li>
+                            <li>Feminist perspective</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Tools & Platforms</h3>
+                        <ul>
+                            <li>Claude AI</li>
+                            <li>Google Docs</li>
+                            <li>Advanced Excel</li>
+                            <li>LinkedIn & Medium</li>
+                            <li>Content management basics</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="approach-section">
+                <h2>My AI Methodology</h2>
+                <p style="margin-bottom: 30px;">
+                    I don't generate AI content and call it done. I engineer content through a deliberate, human-centered process.
+                </p>
+                <div class="approach-grid">
+                    <div class="approach-card">
+                        <h3>1️⃣ Specific Prompts</h3>
+                        <p>Define audience, word count, tone, SEO keywords, and structure upfront. Vague prompts yield vague content.</p>
+                    </div>
+                    <div class="approach-card">
+                        <h3>2️⃣ Data-Backed</h3>
+                        <p>Request sources, examples, and statistics. I verify all facts. All content includes real references, never hallucinations.</p>
+                    </div>
+                    <div class="approach-card">
+                        <h3>3️⃣ Iterative Refinement</h3>
+                        <p>First drafts rarely final. I refine for tone, accuracy, engagement, and strategic alignment with your goals.</p>
+                    </div>
+                    <div class="approach-card">
+                        <h3>4️⃣ Human Judgment</h3>
+                        <p>AI generates options. I decide meaning, audience fit, strategic purpose. That judgment is irreplaceable.</p>
+                    </div>
+                    <div class="approach-card">
+                        <h3>5️⃣ Full Transparency</h3>
+                        <p>I document prompts, refinement decisions, and methodology. You know exactly how content was created.</p>
+                    </div>
+                    <div class="approach-card">
+                        <h3>6️⃣ Accuracy & Accountability</h3>
+                        <p>Fact-checked, plagiarism-free, strategically aligned. You can trust the work because it's verified work.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- TAB 4: CONTACT -->
+        <div id="contact" class="tab-content">
+            <section class="cta-section">
+                <h2>Let's Work Together</h2>
+                <p>
+                    I'm available for freelance AI-assisted content writing projects. Whether you need blog posts, social media strategy, 
+                    or research-backed narratives, I bring research rigor, strategic thinking, and human expertise to every piece.
+                </p>
+                <div class="cta-buttons">
+                    <a href="mailto:bhavyamahima439@gmail.com?subject=Freelance Content Writing Inquiry" class="cta-btn cta-btn-primary">
+                        📧 Email Me
+                    </a>
+                    <a href="tel:7093263098" class="cta-btn cta-btn-secondary">
+                        📱 Call/WhatsApp
+                    </a>
+                </div>
+
+                <h3 style="margin-top: 50px; margin-bottom: 20px; font-family: 'Playfair Display', serif; font-size: 1.3em;">What I'm Looking For</h3>
+                <p style="text-align: left; max-width: 600px; margin: 20px auto;">
+                    <strong>Ideal projects:</strong><br>
+                    ✓ Blog posts on climate, sustainability, tech innovation (my sweet spot)<br>
+                    ✓ SEO-optimized long-form articles (1,000+ words)<br>
+                    ✓ LinkedIn/social content strategy<br>
+                    ✓ Research synthesis into accessible narratives<br>
+                    ✓ Thought leadership content for executives/founders<br>
+                    ✓ Ongoing retainer work (4+ pieces/month)
+                </p>
+
+                <h3 style="margin-top: 50px; margin-bottom: 20px; font-family: 'Playfair Display', serif; font-size: 1.3em;">Typical Rates</h3>
+                <p style="text-align: left; max-width: 600px; margin: 20px auto;">
+                    <strong>Short content</strong> (social posts): ₹500–₹1,000<br>
+                    <strong>Blog posts</strong> (500–1,000 words): ₹3,000–₹5,000<br>
+                    <strong>Long-form articles</strong> (1,200+ words): ₹6,000–₹10,000<br>
+                    <strong>Retainer</strong> (4 posts/month): ₹15,000–₹25,000<br>
+                    <em>(Flexible for ongoing partnerships & volume discounts)</em>
+                </p>
+            </section>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            <strong>Bhavya sree MLN</strong> | Content Writer & AI Strategist
+        </p>
+        <p>
+            <a href="mailto:bhavyamahima439@gmail.com">Email</a> • 
+            <a href="tel:7093263098">+91 7093263098</a> • 
+            <a href="https://linkedin.com/in/bhavya-sree-mahimaluru" target="_blank">LinkedIn</a> • 
+            <a href="https://medium.com/@bhavyamahima439" target="_blank">Medium</a>
+        </p>
+        <p style="margin-top: 20px; opacity: 0.7;">
+            © 2026 Bhavya sree MLN. All rights reserved. | Narrative-driven content, carefully crafted.
+        </p>
+    </footer>
+
+    <script>
+        function switchTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        function toggleSample(sampleId) {
+            const sample = document.getElementById(sampleId);
+            sample.classList.toggle('show');
+            
+            // Scroll into view
+            setTimeout(() => {
+                sample.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 100);
+        }
+    </script>
+</body>
+</html>
